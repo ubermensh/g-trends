@@ -11,7 +11,7 @@ function reformatTrendsData(trendsData) {
 
     for (let key in res) {
       let item = res[key];
-      labels.push(item.formattedTime);
+      labels.push(item.formattedAxisTime);
       data.push(parseInt(item.formattedValue));
     }
     return {
