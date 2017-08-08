@@ -17,8 +17,8 @@ class App extends Component {
 
   getData(query) {
     this.setState({currentQuery: query });
-    alert('A name was submitted: ' + query);
-      fetch('/chart')
+      //fetch('/chart')
+      fetch(`/chart/${query}`)
         .then(res => res.json())
         .then(chartData  => this.setState({ googleTrendsData: chartData }))
       .catch((err) => {

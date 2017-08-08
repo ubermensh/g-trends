@@ -27,8 +27,10 @@ function reformatTrendsData(trendsData) {
     //}
 }
 
-router.get('/', function(req, res, next) {
-	googleTrends.interestOverTime({keyword: 'Women\'s march', startTime: new Date('2016-01-01')},
+router.get('/:query', function(req, res, next) {
+    const { query } = req.params;
+    debug(query);
+	googleTrends.interestOverTime({keyword: query, startTime: new Date('2016-01-01')},
     function(err, results){
 	  if(err) console.error('there was an error!', err);
 	  else {
