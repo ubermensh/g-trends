@@ -10,14 +10,13 @@ class App extends Component {
     super(props);
     this.state = {
         currentQuery: null, 
-      googleTrendsData: null
+        googleTrendsData: null
     }
     this.getData = this.getData.bind(this);
   }
 
   getData(query) {
     this.setState({currentQuery: query });
-      //fetch('/chart')
       fetch(`/chart/${query}`)
         .then(res => res.json())
         .then(chartData  => this.setState({ googleTrendsData: chartData }))
