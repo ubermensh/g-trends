@@ -27,9 +27,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <Form getData = {this.getData} />
+      <div className="container">
+          <div className="row">
+            <Form getData = {this.getData} />
+            </div>
+          <div className="row">
         <Chart currentQuery = {this.state.currentQuery} googleTrendsData={this.state.googleTrendsData} />
+      </div>
       </div>
     );
   }

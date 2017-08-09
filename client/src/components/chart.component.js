@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//var LineChart = require("react-chartjs").Line;
 import {Line} from 'react-chartjs-2';
 
 class Chart extends Component {
@@ -50,8 +49,8 @@ class Chart extends Component {
   render() {
 	if (this.props.googleTrendsData) {
 		return (
-		  <div className="row">
-                <Line data={this.createData()} options={this.options} />
+		  <div className="col-md-10 col-md-offset-1" id='chart'>
+                     <Line data={this.createData()} options={this.options}  />
 		  </div>
 		);
 	  }

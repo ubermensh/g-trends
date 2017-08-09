@@ -23,10 +23,7 @@ class Form extends Component {
     event.preventDefault();
       const dateFrom = new Date(this.state.dateFrom);
       const dateTo = new Date(this.state.dateTo);
-      if(!this.state.query){
-          alert("Enter query!");
-      }
-      else if (dateFrom.getTime() > dateTo.getTime()){
+      if (dateFrom.getTime() > dateTo.getTime()){
           alert(`ivalid date range! ${this.state.dateFrom} -  ${this.state.dateTo}`);
       }
       else {
@@ -37,15 +34,17 @@ class Form extends Component {
 
   render() {
 		return (
-          <form onSubmit={this.handleSubmit}>
-            <label> Topic:
-              <input type="text" value={this.state.query} onChange={this.handleChange} name='query' />
-            </label>
-            <label> From:
-              <input type="date" value={this.state.dateFrom} onChange={this.handleChange} name='dateFrom' /></label>
-            <label> To:
-              <input type="date" value={this.state.dateTo} onChange={this.handleChange} name='dateTo' /> </label>
-            <input type="submit" value="Submit" />
+          <form className='form-inline row' onSubmit={this.handleSubmit}>
+            <div className=' form-group'>
+            <label> Topic: <input className='form-control' required type="text" value={this.state.query} onChange={this.handleChange} name='query' /> </label>
+           </div> 
+            <div className='form-group'>
+            <label> From: <input className='form-control' required type="date" value={this.state.dateFrom} onChange={this.handleChange} name='dateFrom' /></label>
+           </div> 
+            <div className='form-group'>
+            <label> To: <input className='form-control' required type="date" value={this.state.dateTo} onChange={this.handleChange} name='dateTo' /> </label>
+           </div> 
+            <input className='btn btn-default' type="submit" value="Submit" />
           </form>
 		);
     }
