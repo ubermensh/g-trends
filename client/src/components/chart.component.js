@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-var LineChart = require("react-chartjs").Line;
+//var LineChart = require("react-chartjs").Line;
+import {Line} from 'react-chartjs-2';
 
 class Chart extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class Chart extends Component {
 	if (this.props.googleTrendsData) {
 		return (
 		  <div className="row">
-				<LineChart data={this.props.googleTrendsData} width="600" height="250"/>
+                <Line data={this.props.googleTrendsData} />
 		  </div>
 		);
 	  }
