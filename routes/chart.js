@@ -8,7 +8,6 @@ function reformatTrendsData(trendsData) {
     const res = trendsData['default']['timelineData'];
     const labels = [];
     const data = [];
-
     for (let key in res) {
       let item = res[key];
       labels.push(item.formattedAxisTime);
@@ -18,19 +17,14 @@ function reformatTrendsData(trendsData) {
         labels: labels,
         datasets: [{data:data}]
     }
-
-    //return {
-        //labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        //datasets: [{
-            //data: [12, 19, 3, 5, 2, 3],
-        //}]
-    //}
 }
 
-router.get('/:query', function(req, res, next) {
-    const { query } = req.params;
+router.get('/:query/:dateFrom/:dateTo', function(req, res, next) {
+    const { query, dateFrom, dateTo } = req.params;
+    //const dateFrom = new Date(req.params.dateFrom);
+    //const dateTo = new Date(req.params.dateTo);
     debug(query);
-	googleTrends.interestOverTime({keyword: query, startTime: new Date('2016-01-01')},
+	googleTrends.interestOverTime({keyword: query, startTime: new Date(dateFrom), endTime: new Date(dateTo)},
     function(err, results){
 	  if(err) console.error('there was an error!', err);
 	  else {

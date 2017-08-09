@@ -15,9 +15,9 @@ class App extends Component {
     this.getData = this.getData.bind(this);
   }
 
-  getData(query) {
+  getData(query, dateFrom, dateTo) {
     this.setState({currentQuery: query });
-      fetch(`/chart/${query}`)
+      fetch(`/chart/${query}/${dateFrom}/${dateTo}`)
         .then(res => res.json())
         .then(chartData  => this.setState({ googleTrendsData: chartData }))
       .catch((err) => {

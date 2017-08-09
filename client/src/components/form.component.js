@@ -30,7 +30,7 @@ class Form extends Component {
           alert(`ivalid date range! ${this.state.dateFrom} -  ${this.state.dateTo}`);
       }
       else {
-        this.props.getData(this.state.query);
+        this.props.getData(this.state.query, this.state.dateFrom, this.state.dateTo);
       }
 
   }
