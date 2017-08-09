@@ -29,7 +29,7 @@ class App extends Component {
     return (
       <div className="App">
         <Form getData = {this.getData} />
-        <Chart googleTrendsData={this.state.googleTrendsData} />
+        <Chart currentQuery = {this.state.currentQuery} googleTrendsData={this.state.googleTrendsData} />
       </div>
     );
   }

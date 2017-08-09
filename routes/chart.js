@@ -15,7 +15,7 @@ function reformatTrendsData(trendsData) {
     }
     return {
         labels: labels,
-        datasets: [{data:data}]
+        data: data
     }
 }
 
