@@ -9,9 +9,9 @@ function reformatTrendsData(trendsData) {
     const labels = [];
     const data = [];
     for (let key in res) {
-      let item = res[key];
-      labels.push(item.formattedAxisTime);
-      data.push(parseInt(item.formattedValue));
+        let item = res[key];
+        labels.push(item.formattedAxisTime);
+        data.push(parseInt(item.formattedValue));
     }
     return {
         labels: labels,
@@ -19,27 +19,18 @@ function reformatTrendsData(trendsData) {
     }
 }
 
-router.get('/:query/:dateFrom/:dateTo', function(req, res, next) {
-    const { query, dateFrom, dateTo } = req.params;
-    //const dateFrom = new Date(req.params.dateFrom);
-    //const dateTo = new Date(req.params.dateTo);
+router.get('/:query/:dateFrom/:dateTo', function (req, res, next) {
+    const {query, dateFrom, dateTo} = req.params;
     debug(query);
-	googleTrends.interestOverTime({keyword: query, startTime: new Date(dateFrom), endTime: new Date(dateTo)},
-    function(err, results){
-	  if(err) console.error('there was an error!', err);
-	  else {
-            var reformatedResults = reformatTrendsData(results);
-			res.json(reformatedResults);
-		}
-	})
-  //res.send('respond with a resource');
-  //res.json([{
-    //id: 1,
-    //username: "samsepi0l"
-  //}, {
-    //id: 2,
-    //username: "D0loresH4ze"
-  //}]);
+    googleTrends.interestOverTime({keyword: query, startTime: new Date(dateFrom), endTime: new Date(dateTo)},
+        function (err, results) {
+            if (err) console.error('there was an error!', err);
+            else {
+                var reformatedResults = reformatTrendsData(results);
+                res.json(reformatedResults);
+            }
+        })
+
 
 });
 
