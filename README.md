@@ -2,6 +2,7 @@ g-trends
 ======
 
 Basic clone of google trends
+
 Hosted on AWS: http://ec2-54-145-15-71.compute-1.amazonaws.com/
 
 # Installation
